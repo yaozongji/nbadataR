@@ -1,4 +1,3 @@
-setwd("F:/Learnings/R/NBA")
 rm(list=ls())
 library(tidyverse)
 laltor<-read_csv("laltor.csv")
@@ -8,10 +7,10 @@ nQ1<-which(laltor$detail=="End of the 1st Quarter")
 nQ2<-which(laltor$detail=="End of the 2nd Quarter")
 nQ3<-which(laltor$detail=="End of the 3rd Quarter")
 nQ4<-which(laltor$detail=="End of the 4th Quarter")
-nQ1
-nQ2
-nQ3
-nQ4
+print(nQ1)
+print(nQ2)
+print(nQ3)
+print(nQ4)
 laltor$Q<-c(1:length(laltor$detail))
 laltor$time2<-laltor$time
 laltor$Q[1:nQ1]<-"Quarter1"
@@ -71,7 +70,7 @@ atime<-playbyplay2[1,2]
 atime2<-as.character(playbyplay2[1,2])
 length(atime)
 nchar(atime)
-x <- c('abcd', 1379, 'ÍµÏÐ¸ó', NA)
+x <- c('abcd', 1379, 'å·é—²é˜', NA)
 nchar(x)
 nchar(x, type = 'bytes')
 nchar(x, keepNA = F)
@@ -229,7 +228,7 @@ str_detect(string = x, pattern = "love")
 
 #################################
 # 
-# match,ÍêÈ«Æ¥Åä£¬ ³£ÓÃµÄ %in% ÓÉmatch()¶¨Òå
+# match,å®Œå…¨åŒ¹é…ï¼Œ å¸¸ç”¨çš„ %in% ç”±match()å®šä¹‰
 match(x = "I",table = x)
 "I'm" %in% x
 match(x = "love",table = x)
@@ -269,7 +268,7 @@ unlist(strsplit("a.b.c", ".", fixed = TRUE))
 unlist(strsplit("a.b.c","\\."))
 unlist(strsplit("a.b.c","\\.",fixed=T))
 strsplit("abcde",NULL)
-rec<-list(name="ÀîÃ÷",age=30,scores=c(85,76,90))
+rec<-list(name="æŽæ˜Ž",age=30,scores=c(85,76,90))
 rec
 m<-as.matrix(rec)
 class(m)
@@ -480,10 +479,10 @@ grep("3$",test_vector,value = T)
 str_extract_all(test_vector,"[3$]")
 str_extract_all(string = c("regular.expressions\n","\n"), pattern ="\\.")
 grep("\\.",c("regular.expressions\n","\n"),value = T)
-test_vector2<-c("AlphaGoÊµÔÚÀ÷º¦£¡","alphagoÊÇÉ¶","°¢¶û·¨¹·ÊÇÒ»ÌõºÜÐ×ÃÍµÄ¹·¡£")
-str_extract_all(string = test_vector2, pattern ="AlphaGo|°¢¶û·¨¹·")
+test_vector2<-c("AlphaGoå®žåœ¨åŽ‰å®³ï¼","alphagoæ˜¯å•¥","é˜¿å°”æ³•ç‹—æ˜¯ä¸€æ¡å¾ˆå‡¶çŒ›çš„ç‹—ã€‚")
+str_extract_all(string = test_vector2, pattern ="AlphaGo|é˜¿å°”æ³•ç‹—")
 
-grep(pattern ="AlphaGo|°¢¶û·¨¹·",test_vector2,value = T,ignore.case = T)
+grep(pattern ="AlphaGo|é˜¿å°”æ³•ç‹—",test_vector2,value = T,ignore.case = T)
 str_extract_all(string = c("abc","ac","bc"),pattern = "ab?c")
 grep("a?b",c("abc","ac","bc"),value = T)
 str_extract_all(string = c("abababab","abc","ac"),pattern = "(ab)*")
